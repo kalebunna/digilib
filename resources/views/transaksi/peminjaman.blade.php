@@ -116,8 +116,18 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.15.2/js/selectize.min.js"
         integrity="sha512-IOebNkvA/HZjMM7MxL0NYeLYEalloZ8ckak+NDtOViP7oiYzG5vn6WVXyrJDiJPhl4yRdmNAG49iuLmhkUdVsQ=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://rawgit.com/kabachello/jQuery-Scanner-Detection/master/jquery.scannerdetection.js"></script>
 
     <script>
+        $("#kode_buku").scannerDetection({
+            timeBeforeScanTest: 200, // wait for the next character for upto 200ms
+            avgTimeByChar: 100, // it's not a barcode if a character takes longer than 100ms
+            onComplete: function(barcode, qty) {
+                get_book_barcode(barcode);
+                $("#kode_buku").val('');
+            }
+        });
+
         var cari_buku;
         $(function(param) {
             $('#cari_anggota').selectize({
