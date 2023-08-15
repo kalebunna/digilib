@@ -252,7 +252,7 @@
                     toastSuccess("Peminjaman Berhasil")
                 },
                 error: function() {
-                    toasError("Peminjaman Gagal")
+                    toastError("Peminjaman Gagal")
                 }
             });
         }

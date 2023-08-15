@@ -19,7 +19,12 @@ class TransaksiController extends Controller
         $members = Member::get();
         $bukus = Buku::get();
         $today = Carbon::today()->format("d-m-Y");
-        $dedlen = Carbon::now()->addDays(7)->format('d-m-Y');
+        $dedlen = Carbon::now()->addDays(3)->format('D');
+        if ($dedlen == "Fri") {
+            $dedlen = Carbon::now()->addDays(4)->format('d-m-Y');
+        } else {
+            $dedlen = Carbon::now()->addDays(4)->format('d-m-Y');
+        }
         return view("transaksi.peminjaman", compact('members', 'bukus', 'today', 'dedlen'));
     }
 
@@ -27,12 +32,20 @@ class TransaksiController extends Controller
     {
         DB::beginTransaction();
         try {
+
+            $dedlen = Carbon::now()->addDays(3)->format('D');
+            if ($dedlen == "Fri") {
+                $dedlen = Carbon::now()->addDays(4);
+            } else {
+                $dedlen = Carbon::now()->addDays(3);
+            }
+
             $transaksi = Transaksi::create([
                 'kodeTransaksi' => Str::random(2) . Carbon::now()->format('dmyHs') . rand(100, 999),
                 'user_id' => auth()->user()->id,
                 'member_id' => $request->member_id,
                 'tgl_pinjam' => Carbon::now(),
-                'tgl_pengembalian' => Carbon::now()->addDays(7),
+                'tgl_pengembalian' => $dedlen,
                 'status' => 'pinjam',
             ]);
             $items = $transaksi->buku()->attach($request->books);
