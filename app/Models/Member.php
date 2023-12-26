@@ -9,11 +9,17 @@ class Member extends Model
 {
     use HasFactory;
     protected $fillable = [
+        "nik",
         "nama",
         "kelas",
         "tempat_lahir",
-        "tanggal_lahir",
+        "tempat_tanggal_lahir",
         "gender",
+        'nisn',
+        'desa',
+        'kecamatan',
+        'nama_ayah',
+        'nama_ibu',
     ];
 
     /**
@@ -24,5 +30,15 @@ class Member extends Model
     public function transaksi()
     {
         return $this->hasMany(Transaksi::class);
+    }
+
+    /**
+     * Get all of the kunjungan for the Member
+     *
+     * @return \Illuminate\Eloquent\Relations\HasMany
+     */
+    public function kehadiran()
+    {
+        return $this->hasMany(Kehadiran::class);
     }
 }

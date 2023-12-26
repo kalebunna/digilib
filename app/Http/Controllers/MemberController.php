@@ -8,6 +8,7 @@ use App\Models\Member;
 use App\View\Components\action;
 use Illuminate\Http\Request;
 use DataTables;
+use DB;
 
 class MemberController extends Controller
 {
@@ -64,6 +65,37 @@ class MemberController extends Controller
      */
     public function store(StoreMemberRequest $request)
     {
+        if ($request->ajax()) {
+            DB::beginTransaction();
+            try {
+                if (Member::where('nik', $request->nik)->exists()) {
+                    return response()->json([
+                        "res" => "fail",
+                        "nama" => $request->nama,
+                        "message" => "NIK telah Terdaftar",
+                        "err_detail" => ""
+                    ], 200);
+                } else {
+
+                    Member::create($request->all());
+                    DB::commit();
+                    return response()->json([
+                        "res" => "success",
+                        "nama" => $request->nama,
+                        "message" => "success",
+                        "err_detail" => ""
+                    ], 200);
+                }
+            } catch (\Throwable $th) {
+                DB::rollback();
+                return response()->json([
+                    "res" => "success",
+                    "nama" => $request->nama,
+                    "message" => "Terjadi Kesalahan Server",
+                    "err_detail" => $th->getMessage()
+                ], 500);
+            }
+        }
         Member::create($request->all());
         return response()->json("success", 200);
     }

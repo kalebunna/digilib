@@ -65,17 +65,31 @@
                  <span class="hide-menu">Pengembalian</span>
              </a>
          </li>
+         <li class="sidebar-item">
+             <a class="sidebar-link" href="{{ route('kunjungan.index') }}" aria-expanded="false">
+                 <span>
+                     <i class="ti ti-aperture"></i>
+                 </span>
+                 <span class="hide-menu">Kunjungan</span>
+             </a>
+         </li>
 
          <li class="nav-small-cap">
              <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
              <span class="hide-menu">Report</span>
          </li>
          <li class="sidebar-item">
-             <a class="sidebar-link" href="./index.html" aria-expanded="false">
+             {{-- <a class="sidebar-link" href="./index.html" aria-expanded="false">
                  <span>
                      <i class="ti ti-aperture"></i>
                  </span>
                  <span class="hide-menu">Laporan</span>
+             </a> --}}
+             <a class="sidebar-link" href="{{ route('kehadiran.laporan') }}" aria-expanded="false">
+                 <span>
+                     <i class="ti ti-aperture"></i>
+                 </span>
+                 <span class="hide-menu">Laporan Kunjungan</span>
              </a>
          </li>
      </ul>

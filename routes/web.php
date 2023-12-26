@@ -5,6 +5,7 @@ use App\Http\Controllers\BukuController;
 use App\Http\Controllers\ExportController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\KategoriController;
+use App\Http\Controllers\KehadiranController;
 use App\Http\Controllers\MemberController;
 use App\Http\Controllers\PetugasController;
 use App\Http\Controllers\TransaksiController;
@@ -30,6 +31,7 @@ Route::middleware(['auth', 'role:petugas'])->group(
         Route::get('buku/export', [BukuController::class, 'cetakBarcode'])->name('buku.export');
         Route::resource('member', MemberController::class)->except(['create', 'edit']);
         Route::resource('petugas', PetugasController::class)->except(['show', 'create', 'edit', 'destroy', 'update']);
+        Route::get('kunjungan', [KehadiranController::class, 'index'])->name('kunjungan.index');
         // Route::get("petugas/{petugas}", [PetugasController::class, 'show']);
         Route::delete('petugas/{petugas}', [PetugasController::class, 'destroy'])->name('petugas.destroy');
         Route::put('petugas/{petugas}', [PetugasController::class, 'update'])->name('petugas.update');
@@ -40,9 +42,11 @@ Route::middleware(['auth', 'role:petugas'])->group(
         Route::post('pengambalian/cari', [TransaksiController::class, 'getDataByKode'])->name('pengambalian.cari');
         Route::post('pengembalian', [TransaksiController::class, 'pengembalian_store'])->name('transaksi.pengembalian');
         Route::post('buku/getByBarcode', [BukuController::class, 'getBukuByBarcode'])->name('buku.barcode');
-
-
         Route::post('export/buku', [ExportController::class, 'ExportBuku'])->name('export.buku');
+        Route::post('kunjungan/getMember/{member}', [KehadiranController::class, 'get_member'])->name('kehadiran.getMember');
+        Route::post('kunjungan', [KehadiranController::class, 'store'])->name('kehadiran.store');
+        Route::get('kunjungan/laporan', [KehadiranController::class, 'laporan'])->name('kehadiran.laporan');
+        Route::post('kunjungan/laporan', [KehadiranController::class, 'laporan'])->name('kehadiran.laporan.post');
 
         Route::get('download/{jenis}', function ($kategori) {
             switch ($kategori) {
