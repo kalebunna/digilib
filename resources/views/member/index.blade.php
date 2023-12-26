@@ -173,7 +173,7 @@
     </div>
 @endsection
 @section('js')
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.1/dist/sweetalert2.all.min.js"></script>
+    <script src="{{ asset('templates/vendor/sweetalert/js.js') }}"></script>
     <script lang="javascript" src="{{ asset('templates/vendor/xlsx/js.js') }}"></script>
     <script src="{{ asset('templates/vendor/selectsize/js.js') }}"></script>
     <script>
