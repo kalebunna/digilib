@@ -60,7 +60,7 @@
                                                 @foreach ($members as $item)
                                                     <option value="{{ $item->id }}" data-nik="{{ $item->nik }}">
                                                         {{ $item->nama }} ||
-                                                        {{ $item->kelas }} || {{ $item->kelas }}</option>
+                                                        {{ $item->kelas }} || {{ $item->kecamatan }}</option>
                                                 @endforeach
                                             </select>
                                         </form>
