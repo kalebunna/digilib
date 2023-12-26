@@ -1,8 +1,6 @@
 @extends('layouts.app')
 @section('style')
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.15.2/css/selectize.default.min.css"
-        integrity="sha512-pTaEn+6gF1IeWv3W1+7X7eM60TFu/agjgoHmYhAfLEU8Phuf6JKiiE8YmsNC0aCgQv4192s4Vai8YZ6VNM6vyQ=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="{{ asset('templates/vendor/selectsize/css.css') }}" />
 @endsection
 @section('content')
     <x-breadcrumb :title="'Member'" :subtitle="'Data'">
@@ -176,10 +174,8 @@
 @endsection
 @section('js')
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.1/dist/sweetalert2.all.min.js"></script>
-    <script lang="javascript" src="https://cdn.sheetjs.com/xlsx-0.20.1/package/dist/xlsx.full.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.15.2/js/selectize.min.js"
-        integrity="sha512-IOebNkvA/HZjMM7MxL0NYeLYEalloZ8ckak+NDtOViP7oiYzG5vn6WVXyrJDiJPhl4yRdmNAG49iuLmhkUdVsQ=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script lang="javascript" src="{{ asset('templates/vendor/xlsx/js.js') }}"></script>
+    <script src="{{ asset('templates/vendor/selectsize/js.js') }}"></script>
     <script>
         var table;
         $(function() {
@@ -389,7 +385,6 @@
                     $("#status" + index_table).html("<span class='badge bg-warning'>Fail</span>")
                     toastError(response.message);
                     index_table++;
-
                 });
 
             });

@@ -23,9 +23,7 @@
     <!-- --------------------------------------------------- -->
     <!--datatables -->
     <link rel="stylesheet" href="{{ asset('templates/css/dataTables.bootstrap5.min.css') }}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css"
-        integrity="sha512-nMNlpuaDPrqlEls3IX/Q56H36qvBASwb3ipuo3MxeWbsQB1881ox0cRv7UPTgBlriqoynt35KjEwgGUeUXIPnw=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="{{ asset('templates/vendor/select2/css.css') }}" />
     <!-- --------------------------------------------------- -->
     <!-- Core Css -->
     <!-- --------------------------------------------------- -->
@@ -135,12 +133,10 @@
     <!-- ---------------------------------------------- -->
     <script src="{{ asset('templates/js/jquery.dataTables.min.js') }}"></script>
     <script src="{{ asset('templates/js/toastr.js') }}"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"
-        integrity="sha512-2ImtlRlf2VVmiGZsjm9bEyhjGW4dU7B6TNwh/hx/iSByxNENtj3WVE6o/9Lj4TJeVXPi4bnOIMXFIJJAeufa0A=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="{{ asset('templates/vendor/select2/js.js') }}"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.1/dist/sweetalert2.all.min.js"></script>
-    <script lang="javascript" src="https://cdn.sheetjs.com/xlsx-0.20.1/package/dist/xlsx.full.min.js"></script>
+    <script lang="javascript" src="{{ asset('templates/vendor/xlsx/js.js') }}"></script>
     @yield('js')
 
     <script>
