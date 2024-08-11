@@ -276,6 +276,7 @@
             e.preventDefault();
             var Data = new FormData(this);
             console.log(Data);
+
             $.ajax({
                 url: $("#form-update").attr("action"),
                 type: 'PUT',

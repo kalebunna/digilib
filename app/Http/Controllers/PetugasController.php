@@ -43,27 +43,7 @@ class PetugasController extends Controller
                               </div>
                             </div>';
                 })
-                ->addColumn('action', function ($row) {
-                    $com = new action($row->id, array(
-                        [
-                            "nama" => "name",
-                            "nilai" => $row->user->name
-                        ],
-                        [
-                            "nama" => "email",
-                            "nilai" => $row->user->email
-                        ],
-                        [
-                            "nama" => "alamat",
-                            "nilai" => $row->alamat
-                        ],
-                        [
-                            "nama" => "no_tlp",
-                            "nilai" => $row->no_tlp
-                        ],
-                    ));
-                    return $com->render();
-                })
+                <x-modal-footer />
                 ->rawColumns(['action', 'nama'])
                 ->make(true);
         }
