@@ -13,12 +13,12 @@ return new class extends Migration
     {
         Schema::create('members', function (Blueprint $table) {
             $table->id();
-            $table->string('nik');
             $table->string('nama');
             $table->string('kelas')->nullable();
-            $table->string('tempat_tanggal_lahir')->nullable();
+            $table->string('tanggal_lahir')->nullable();
+            $table->string('tempat_lahir')->nullable();
             $table->enum('gender', ['L', 'P'])->nullable();
-            $table->string('nisn')->nullable();
+            $table->string('nisn')->unique()->nullable();
             $table->string('desa')->nullable();
             $table->string('kecamatan')->nullable();
             $table->string('nama_ayah')->nullable();

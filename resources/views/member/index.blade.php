@@ -54,6 +54,10 @@
                                 <input type="text" class="form-control" required name="nama" id="nama">
                             </div>
                             <div class="col-12">
+                                <label for="" class="fw-bold mb-1"><span class="text-danger">* </span>NISN</label>
+                                <input type="text" class="form-control" required name="nama" id="nama">
+                            </div>
+                            <div class="col-12">
                                 <label for="" class="fw-bold mb-1"><span class="text-danger">* </span>Kelas</label>
                                 <input type="text" class="form-control" required name="kelas" id="kelas">
                             </div>
@@ -72,9 +76,29 @@
                                     Kelamin</label>
                                 <select name="gender" id="gender" class="form-control" required>
                                     <option value="">--Pilih Jenis Kelamin--</option>
-                                    <option value="Laki-Laki">Laki-Laki</option>
-                                    <option value="Perempuan">Perempuan</option>
+                                    <option value="L">Laki-Laki</option>
+                                    <option value="P">Perempuan</option>
                                 </select>
+                            </div>
+                            <div class="col-12">
+                                <label for="" class="fw-bold mb-1"><span class="text-danger">* </span>Desa</label>
+                                <input type="text" class="form-control" required name="desa" id="desa">
+                            </div>
+
+                            <div class="col-12">
+                                <label for="" class="fw-bold mb-1"><span class="text-danger">*
+                                    </span>Kecamatan</label>
+                                <input type="text" class="form-control" required name="kecamatan" id="kecamatan">
+                            </div>
+                            <div class="col-12">
+                                <label for="" class="fw-bold mb-1"><span class="text-danger">*
+                                    </span>Nama Ayah</label>
+                                <input type="text" class="form-control" required name="nama_ayah" id="nama_ayah">
+                            </div>
+                            <div class="col-12">
+                                <label for="" class="fw-bold mb-1"><span class="text-danger">*
+                                    </span>Nama Ibu</label>
+                                <input type="text" class="form-control" required name="nama_ibu" id="nama_ibu">
                             </div>
                         </div>
                     </div>

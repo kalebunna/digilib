@@ -51,7 +51,7 @@
                             <b>{{ $today }}</b>
                         </div>
                         <div class="w-100 ms-3 text-center">
-                            <h6 class="fw-normal">Tenggal</h6>
+                            <h6 class="fw-normal">Tenggat</h6>
                             <b>{{ $dedlen }}</b>
                         </div>
                     </div>

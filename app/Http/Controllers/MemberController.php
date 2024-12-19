@@ -68,7 +68,7 @@ class MemberController extends Controller
         if ($request->ajax()) {
             DB::beginTransaction();
             try {
-                if (Member::where('nik', $request->nik)->exists()) {
+                if (Member::where('nisn', $request->nisn)->exists()) {
                     return response()->json([
                         "res" => "fail",
                         "nama" => $request->nama,
