@@ -19,6 +19,19 @@ class BukuImport implements ToCollection
     {
 
         foreach ($rows as $row) {
+            $kategori = Kategori::firstOrCreate([
+                "name" => $row[7]
+            ]);
+
+            $kategori->buku()->create([
+                "judul" => $row[0],
+                "no_barcode" => isNull($row[1])  ?   rand(1000000, 9999999) . Carbon::now()->format('his') : $row[2],
+                "pengarang" => $row[3],
+                "penerbit" => $row[4],
+                "thn_terbit" => $row[5],
+                "eksemplar" => $row[6],
+                "no_isbn" => $row[2],
+            ]);
         }
     }
 

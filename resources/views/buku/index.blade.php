@@ -391,6 +391,8 @@
          });
 
          $("#form-import").submit(function(e) {
+             console.log("import file");
+
              e.preventDefault();
              var Data = new FormData(this);
              $.ajax({

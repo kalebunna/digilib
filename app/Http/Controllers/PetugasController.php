@@ -43,7 +43,7 @@ class PetugasController extends Controller
                               </div>
                             </div>';
                 })
-                <x-modal-footer />
+
                 ->rawColumns(['action', 'nama'])
                 ->make(true);
         }
@@ -82,9 +82,7 @@ class PetugasController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(petugas $petugas)
-    {
-    }
+    public function show(petugas $petugas) {}
 
     /**
      * Show the form for editing the specified resource.
@@ -112,7 +110,8 @@ class PetugasController extends Controller
                     "gambar" => $name
                 ]);
                 $petugas->user->update($request->except([
-                    "alamat", "no_tlp"
+                    "alamat",
+                    "no_tlp"
                 ]));
             } else {
                 $petugas->update([
@@ -120,7 +119,8 @@ class PetugasController extends Controller
                     "no_tlp" => $request->no_tlp,
                 ]);
                 $petugas->user->update($request->except([
-                    "alamat", "no_tlp"
+                    "alamat",
+                    "no_tlp"
                 ]));
             }
             return response()->json("success", 200);
